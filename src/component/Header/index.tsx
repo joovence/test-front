@@ -9,7 +9,8 @@ const LogoDisplay = styled.img`
 `;
 
 const HeaderContainer = styled.div`
-  margin: auto;
+  font-size: 1.3rem;
+  text-align: center;
 `;
 
 const Header = () => {

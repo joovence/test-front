@@ -4,7 +4,7 @@ import Doctors from "./DoctorListElement";
 import axios, { AxiosResponse } from "axios";
 
 // contact description for each doctor
-export interface DoctorInfo {
+export interface DoctorAvailabilitie {
   id?: string;
   name?: string;
   address?: {
@@ -22,7 +22,7 @@ export interface TDoctorListProps {
   items?: any;
 }
 
-const DoctorList: React.FC<TDoctorListProps> = () => {
+const DoctorAvailabilities: React.FC<TDoctorListProps> = () => {
   const [doctor, setDoctorList] = useState<TDoctorListProps>([] as any);
 
   useEffect(() => {
@@ -41,4 +41,4 @@ const DoctorList: React.FC<TDoctorListProps> = () => {
     </Fragment>
   );
 };
-export default DoctorList;
+export default DoctorAvailabilities;
