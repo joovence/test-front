@@ -1,6 +1,7 @@
 import { shallow } from "enzyme";
 import Header from "./index";
 import Logo from "../../assets/joovence-logo.png";
+import {Link} from "react-router-dom"
 
 /**
  * function shallow for App component

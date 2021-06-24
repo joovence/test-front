@@ -1,7 +1,8 @@
 // map of the list of doctors for getDataApi/DoctorsList
 import React from "react";
 import styled from "styled-components";
-import { TDoctorListProps, DoctorInfo } from "./index";
+import { TDoctorListProps } from "./index";
+import DoctorAvailabilities from "./DoctorAvailabilities";
 
 const Container = styled.ul`
   diplay: flex;
@@ -23,7 +24,7 @@ const Column = styled.div`
   display: table;
   float: left;
   width: 100%;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     ${(props: Span) => ``};
     width: ${(props?: any) => (props.span ? (props.span / 12) * 100 : "8.33")}%;
   } ;
@@ -32,6 +33,7 @@ const Column = styled.div`
 const Box = styled.li`
   display: flex;
   flex-wrap: wrap;
+  font-size: 0.8rem;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
@@ -40,36 +42,40 @@ const Box = styled.li`
   border: 3px solid silver;
   border-radius: 3px;
   list-style: none;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    font-size: 2rem;
+  } ;
 `;
 
 const Doctors: React.FC<TDoctorListProps> = ({ items }) => {
-  console.log(
-    "items",
-    items.map((item: any) => item.address.line1)
-  );
   return (
     <div>
       <Container>
         {items &&
           items.map((item: any) => (
             <Box key={item.id}>
-              <Column span="5">
-                <h3>{item.name}</h3>
-                <p>{item.address.line1}</p>
-                <p>{item.address.line2}</p>
-                <p>{item.address.postalCode}</p>
-                <p>{item.address.city} ({item.address.country})</p>
-                <p></p>
-                <br />
-              </Column>
-              <Column span="5">
-                <span>{item.name}</span>
-                <br />
-              </Column>
-              <Column span="2">
-                <span>{item.name}</span>
-                <br />
-              </Column>
+              <Row>
+                <Column span="4">
+                  <h3>{item.name}</h3>
+                  <p>
+                    {item.address.city} ({item.address.country})
+                  </p>
+                  
+                  <p></p>
+                  <br />
+                </Column>
+                <Column span="6">
+                  <span>
+                    <DoctorAvailabilities test={item.id} />
+                  </span>
+                  <br />
+                </Column>
+                <Column span="2">
+                  <p>Book an appointment with:</p><b>{item.name}</b>
+                  <br />
+                </Column>
+              </Row>
             </Box>
           ))}
       </Container>

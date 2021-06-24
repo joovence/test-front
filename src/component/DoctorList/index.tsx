@@ -1,7 +1,8 @@
-// display list of doctors
+// display list of doctors with DoctorListElement  component
 import React, { useEffect, useState, Fragment } from "react";
 import Doctors from "./DoctorListElement";
 import axios, { AxiosResponse } from "axios";
+
 
 // contact description for each doctor
 export interface DoctorInfo {
@@ -13,7 +14,6 @@ export interface DoctorInfo {
     line1?: string;
     line2?: string;
     postalCode?: number;
-
   };
 }
 // List of doctors to use as props type
@@ -34,7 +34,6 @@ const DoctorList: React.FC<TDoctorListProps> = () => {
       });
   }, []);
 
-  console.log("doctors...", doctor);
   return (
     <Fragment>
       <Doctors items={doctor} />

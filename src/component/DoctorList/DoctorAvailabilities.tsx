@@ -1,44 +1,37 @@
-// display list of doctors
-import React, { useEffect, useState, Fragment } from "react";
-import Doctors from "./DoctorListElement";
+// display availabilities of doctors
+import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
+import Availability from "./AvailabilityElement";
 
 // contact description for each doctor
 export interface DoctorAvailabilitie {
-  id?: string;
-  name?: string;
-  address?: {
-    city?: string;
-    country?: string;
-    line1?: string;
-    line2?: string;
-    postalCode?: number;
-
-  };
+  start?: string;
 }
+
 // List of doctors to use as props type
 // export type TDoctorList = DoctorInfo[];
-export interface TDoctorListProps {
-  items?: any;
+export interface TAvailabilitiesProps {
+  date?: any[];
 }
 
-const DoctorAvailabilities: React.FC<TDoctorListProps> = () => {
-  const [doctor, setDoctorList] = useState<TDoctorListProps>([] as any);
+//const test:string = "18635ed2-3822-466d-8bde-400a3f5aef17"
+
+const DoctorAvailabilities: React.FC<any>= ({test}) => {
+  const [
+    doctorAvailability,
+    setDoctorAvailabilities,
+  ] = useState<TAvailabilitiesProps>([] as any);
 
   useEffect(() => {
     axios
-      .get("https://tech-test.joovence.dev/api/doctors")
+      .get(`https://tech-test.joovence.dev/api/availabilities?doctorId=${test}`)
       .then((response: AxiosResponse) => {
-        console.log(response.data);
-        setDoctorList(response.data);
+        console.log("setDoctorAvailabilities", response.data);
+        setDoctorAvailabilities(response.data);
       });
-  }, []);
+  }, [test]); 
 
-  console.log("doctors...", doctor);
-  return (
-    <Fragment>
-      <Doctors items={doctor} />
-    </Fragment>
-  );
+  return <Availability date={doctorAvailability} doctorId={test}/>;
 };
+
 export default DoctorAvailabilities;
