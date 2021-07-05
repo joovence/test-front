@@ -14,9 +14,9 @@ export interface TAvailabilitiesProps {
   date?: any[];
 }
 
-//const test:string = "18635ed2-3822-466d-8bde-400a3f5aef17"
 
-const DoctorAvailabilities: React.FC<any>= ({test}) => {
+
+const DoctorAvailabilities: React.FC<any> = ({ test, name }) => {
   const [
     doctorAvailability,
     setDoctorAvailabilities,
@@ -26,12 +26,14 @@ const DoctorAvailabilities: React.FC<any>= ({test}) => {
     axios
       .get(`https://tech-test.joovence.dev/api/availabilities?doctorId=${test}`)
       .then((response: AxiosResponse) => {
-        console.log("setDoctorAvailabilities", response.data);
+
         setDoctorAvailabilities(response.data);
       });
-  }, [test]); 
+  }, [test]);
 
-  return <Availability date={doctorAvailability} doctorId={test}/>;
+  return (
+    <Availability date={doctorAvailability} doctorId={test} doctorName={name} />
+  );
 };
 
 export default DoctorAvailabilities;

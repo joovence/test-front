@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
 } from "react-router-dom";
 import "./index.css";
 import App from "./App";
@@ -17,9 +16,7 @@ ReactDOM.render(
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/">
-          <Redirect to="/availabilities" />
-        </Route>
+        <Route exact path="/" component={App} />   
         <Route path="/availabilities" component={App} exact />
         <Route path="/bookings" component={Booking} exact />
       </Switch>

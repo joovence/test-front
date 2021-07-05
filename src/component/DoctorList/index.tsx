@@ -1,8 +1,8 @@
 // display list of doctors with DoctorListElement  component
 import React, { useEffect, useState, Fragment } from "react";
 import Doctors from "./DoctorListElement";
+import Doc from "./DocElement";
 import axios, { AxiosResponse } from "axios";
-
 
 // contact description for each doctor
 export interface DoctorInfo {
@@ -19,20 +19,29 @@ export interface DoctorInfo {
 // List of doctors to use as props type
 // export type TDoctorList = DoctorInfo[];
 export interface TDoctorListProps {
-  items?: any;
+  items?: DoctorInfo[];
 }
 
-const DoctorList: React.FC<TDoctorListProps> = () => {
-  const [doctor, setDoctorList] = useState<TDoctorListProps>([] as any);
+const DoctorList: React.FC<any> = (doctorId: any) => {
+  const [doctor, setDoctorList] = useState<any>([]);
 
   useEffect(() => {
     axios
       .get("https://tech-test.joovence.dev/api/doctors")
       .then((response: AxiosResponse) => {
-        console.log(response.data);
         setDoctorList(response.data);
       });
   }, []);
+
+  if (doctorId.item) {
+    const r = doctor.filter((e: any) => e.name === doctorId.item);
+
+    return (
+      <Fragment>
+        <Doc item={r} />
+      </Fragment>
+    );
+  }
 
   return (
     <Fragment>

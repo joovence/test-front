@@ -28,13 +28,14 @@ const DateText = styled.span`
   font-size: 14px;
 `;
 
-const Availability: React.FC<any> = ({ date, doctorId }) => {
+const Availability: React.FC<any> = ({ date, doctorId, doctorName }) => {
   //order date
   const dateOrder = date.sort(function (a: any, b: any) {
     var dateA: any = new Date(a.start);
     var dateB: any = new Date(b.start);
     return dateA - dateB;
   });
+
   return (
     <div>
       {dateOrder.map((item: any) => (
@@ -44,6 +45,7 @@ const Availability: React.FC<any> = ({ date, doctorId }) => {
             state: {
               date: item.start,
               doctorId: doctorId,
+              doctorName: doctorName,
             },
           }}
         >

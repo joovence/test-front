@@ -1,8 +1,9 @@
-// map of the list of doctors for getDataApi/DoctorsList
+// map of the list of doctors for index
 import React from "react";
 import styled from "styled-components";
 import { TDoctorListProps } from "./index";
 import DoctorAvailabilities from "./DoctorAvailabilities";
+
 
 const Container = styled.ul`
   diplay: flex;
@@ -33,7 +34,7 @@ const Column = styled.div`
 const Box = styled.li`
   display: flex;
   flex-wrap: wrap;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
@@ -44,7 +45,7 @@ const Box = styled.li`
   list-style: none;
   @media only screen and (max-width: 768px) {
     width: 100%;
-    font-size: 2rem;
+    font-size: 1rem;
   } ;
 `;
 
@@ -67,7 +68,7 @@ const Doctors: React.FC<TDoctorListProps> = ({ items }) => {
                 </Column>
                 <Column span="6">
                   <span>
-                    <DoctorAvailabilities test={item.id} />
+                    <DoctorAvailabilities test={item.id} name={item.name}/>
                   </span>
                   <br />
                 </Column>
