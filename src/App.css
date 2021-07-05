@@ -1,12 +1,9 @@
-.header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: 16px;
-}
-
-.logo {
-  width: 300px;
+body {
+  margin-left: 1rem;
+  margin-left: 1rem;
+  font-family: 'AvenirLTStd', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal;
+  font-style: normal;
 }
