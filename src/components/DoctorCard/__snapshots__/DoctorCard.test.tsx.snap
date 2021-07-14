@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - DoctorCard Should Match SnapShot 1`] = `
+<DoctorCard
+  address={
+    Object {
+      "city": "Funchal",
+      "country": "Portugal",
+      "line1": "Santa",
+      "line2": "Rita",
+      "postalCode": "0099",
+    }
+  }
+  id="someId"
+  name="Henrique Omena"
+/>
+`;

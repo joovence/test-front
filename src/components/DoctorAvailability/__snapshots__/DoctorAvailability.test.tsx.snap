@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - DoctorAvailability Should Match SnapShot 1`] = `
+<MemoryRouter>
+  <DoctorAvailability
+    data={
+      Array [
+        Object {
+          "start": "2021-08-26T05:49:16.334Z",
+        },
+      ]
+    }
+    id="anyId"
+    name="anyName"
+  />
+  ;
+</MemoryRouter>
+`;

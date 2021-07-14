@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component - AddressDetails Should Match SnapShot 1`] = `
+<AddressDetails
+  city="Funchal"
+  country="Portugal"
+  line1="Santa"
+  line2="Rita"
+  postalCode="0099"
+/>
+`;
